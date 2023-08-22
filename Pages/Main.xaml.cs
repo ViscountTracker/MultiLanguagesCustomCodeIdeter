@@ -1,6 +1,4 @@
-﻿using SandboxForTasks.Pages;
-using SandboxForTasks.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SandboxForTasks
+namespace SandboxForTasks.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Main : UserControl
     {
-        public MainWindow()
+        public Main()
         {
             InitializeComponent();
-
         }
     }
 }
