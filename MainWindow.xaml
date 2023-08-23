@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SandboxForTasks"
         mc:Ignorable="d"
-        Title="CodeEditor" Height="450" Width="800">
+        Title="CodeEditor" Height="475" Width="800">
     <StackPanel>
-        <Frame Source="/Views/CodeEditor.xaml"/>
+        <Border Background="Transparent" BorderThickness="0"/>
+        <Frame Source="/Pages/Main.xaml"/>
     </StackPanel>
 </Window>

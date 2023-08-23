@@ -12,7 +12,6 @@ namespace SandboxForTasks.Models
 {
     public class RequestSubmissionsModel
     {
-        
         [JsonProperty("lang")]        
         public string Lang { get; set; }
         [JsonProperty("source")]
