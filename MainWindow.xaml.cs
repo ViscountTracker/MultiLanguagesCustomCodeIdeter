@@ -25,7 +25,6 @@ namespace SandboxForTasks
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }

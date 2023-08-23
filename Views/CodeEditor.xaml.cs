@@ -1,7 +1,10 @@
 ﻿using SandboxForTasks.Service;
+using SandboxForTasks.ViewModels;
+using System.Drawing.Text;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace SandboxForTasks.Pages
+namespace SandboxForTasks.Views
 {
     /// <summary>
     /// Interaction logic for CodeEditor.xaml
@@ -10,7 +13,12 @@ namespace SandboxForTasks.Pages
     {
         public CodeEditor()
         {
- 
+            InitializeComponent();
+            this.DataContext = new CodeEditorViewModel();
+        }
+        private void Execute_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

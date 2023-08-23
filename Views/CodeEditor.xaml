@@ -9,7 +9,15 @@
       >
 
     <StackPanel>
-        <TextBox  Width="750" Height="400" Background="Black" Foreground="White">
+        <TextBox Text="{Binding someTest}" Width="750" Height="400" Background="Black" Foreground="White" FontSize="14" FontFamily="Consolas">
         </TextBox>
+        <Button BorderBrush="AliceBlue" 
+                Background="Black"  
+               Foreground="AntiqueWhite"
+                Content="Execute" 
+                Width="52" Height="30" 
+                HorizontalAlignment="Left" 
+                Margin="25 5 5 10" 
+                Click="Execute_Click" />
     </StackPanel>
 </UserControl>

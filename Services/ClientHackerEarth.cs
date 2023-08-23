@@ -52,7 +52,7 @@ namespace SandboxForTasks.Service
             httpRequest.Content = requstBodyJson;
 
             HttpResponseMessage responseMessage = await httpClient.SendAsync(httpRequest);
-
+            
             ResponseSubmissionsModel? item = null;
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -60,6 +60,5 @@ namespace SandboxForTasks.Service
             }
             return item;
         }
-
     }
 }
