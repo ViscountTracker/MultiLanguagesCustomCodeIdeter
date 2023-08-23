@@ -13,9 +13,5 @@ namespace SandboxForTasks.ViewModels
         public CodeEditorViewModel() {
             someTest = "123";
         }
-
-
-
-
     }
 }

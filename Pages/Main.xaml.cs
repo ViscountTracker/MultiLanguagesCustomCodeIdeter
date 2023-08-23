@@ -24,7 +24,7 @@ namespace SandboxForTasks.Pages
         public Main()
         {
             InitializeComponent();
-            //CodeEditor.DataContext = new CodeEditorViewModel();
+            
         }
     }
 }

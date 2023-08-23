@@ -47,8 +47,8 @@ namespace SandboxForTasks.Service
             httpRequest.Headers.Add("client-secret", clientSecretKey);
 
             RequestSubmissionsModel request = new RequestSubmissionsModel(DEAFAULT_LANG, codeToValidate, DEAFAULT_INPUT, DEAFAULT_MEMORY_LIMIT, DEAFAULT_TIME_LIMIT, DEAFAULT_CONTEXT, DEAFAULT_CALLBACK);
-            var requstBodyJson = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
-            //requstBodyJson.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var requstBodyJson = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8);
+            requstBodyJson.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             httpRequest.Content = requstBodyJson;
 
             HttpResponseMessage responseMessage = await httpClient.SendAsync(httpRequest);
@@ -58,7 +58,6 @@ namespace SandboxForTasks.Service
             {
                 item = JsonConvert.DeserializeObject<ResponseSubmissionsModel>(responseMessage.Content.ReadAsStringAsync().Result);
             }
-            Trace.WriteLine(responseMessage.Content.ReadAsStringAsync().Result);
             return item;
         }
     }

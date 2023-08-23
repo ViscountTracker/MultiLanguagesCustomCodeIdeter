@@ -25,9 +25,6 @@ namespace SandboxForTasks
         public MainWindow()
         {
             InitializeComponent();
-            ClientHackerEarth hackerEarth = new ClientHackerEarth();
-            hackerEarth.GetCodeValidation("print 'Hello world!'");
-
         }
     }
 }
