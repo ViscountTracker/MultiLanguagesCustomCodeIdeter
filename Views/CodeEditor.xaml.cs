@@ -18,7 +18,8 @@ namespace SandboxForTasks.Views
         }
         private void Execute_Click(object sender, RoutedEventArgs e)
         {
-            
+            CodeEditorViewModel codeEditorViewModel = (CodeEditorViewModel)DataContext;
+            codeEditorViewModel.ValidateCode();
         }
     }
 }
