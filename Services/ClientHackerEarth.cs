@@ -60,5 +60,27 @@ namespace SandboxForTasks.Service
             }
             return item;
         }
+        public async Task<ResponseConcreteSubmissionModel> GetResultOfCompiling(string id)
+        {
+            var httpClient = new HttpClient();
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, $"https://api.hackerearth.com/v4/partner/code-evaluation/submissions/{id}");
+
+            httpRequest.Headers.Add("client-secret", clientSecretKey);
+
+            var requstBodyJson = new StringContent(JsonConvert.SerializeObject(""), Encoding.UTF8);
+            requstBodyJson.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            httpRequest.Content = requstBodyJson;
+          
+            HttpResponseMessage responseMessage = await httpClient.SendAsync(httpRequest);
+
+            ResponseConcreteSubmissionModel? item = null;
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                item = JsonConvert.DeserializeObject<ResponseConcreteSubmissionModel>(responseMessage.Content.ReadAsStringAsync().Result);
+            }
+            Trace.WriteLine(responseMessage.Content.ReadAsStringAsync().Result);
+            return item;
+        }
+
     }
 }
