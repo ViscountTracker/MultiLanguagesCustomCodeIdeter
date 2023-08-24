@@ -60,6 +60,7 @@ namespace SandboxForTasks.Service
             }
             return item;
         }
+
         public async Task<ResponseConcreteSubmissionModel> GetResultOfCompiling(string id)
         {
             var httpClient = new HttpClient();
@@ -78,9 +79,7 @@ namespace SandboxForTasks.Service
             {
                 item = JsonConvert.DeserializeObject<ResponseConcreteSubmissionModel>(responseMessage.Content.ReadAsStringAsync().Result);
             }
-            Trace.WriteLine(responseMessage.Content.ReadAsStringAsync().Result);
             return item;
         }
-
     }
 }
