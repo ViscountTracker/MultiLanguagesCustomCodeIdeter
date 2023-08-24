@@ -1,5 +1,6 @@
 ﻿using SandboxForTasks.Service;
 using SandboxForTasks.ViewModels;
+using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,7 +19,8 @@ namespace SandboxForTasks.Views
         }
         private void Execute_Click(object sender, RoutedEventArgs e)
         {
-            
+            CodeEditorViewModel codeEditorViewModel = (CodeEditorViewModel)DataContext;
+            codeEditorViewModel.ValidateCode();
         }
     }
 }
