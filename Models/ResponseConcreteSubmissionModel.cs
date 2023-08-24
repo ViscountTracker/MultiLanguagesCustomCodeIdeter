@@ -18,6 +18,8 @@ namespace SandboxForTasks.Models
     {
         [JsonProperty("stderr")]
         public string Stderr { get; set; }
+        [JsonProperty("output")]
+        public string Output { get; set; }
    
     }
     class ResponseConcreteSubmissionModel
