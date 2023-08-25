@@ -4,19 +4,20 @@ using SandboxForTasks.Service;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Automation.Peers;
 
 namespace SandboxForTasks.ViewModels
 {
     public class CodeEditorViewModel
-    {
-       
-
+    {   
         public CodeEditorModel EditorModel { get; set; }
 
         public CodeEditorViewModel() 
@@ -25,9 +26,31 @@ namespace SandboxForTasks.ViewModels
         }
         public async void ValidateCode() 
         {
+            string language = "PYTHON"; 
+            MessageBox.Show("CURRENT " + EditorModel.Language);
             ClientHackerEarth clientHackerEarth = new ClientHackerEarth();
-            ResponseSubmissionsModel response = await clientHackerEarth.GetCodeValidation(EditorModel.CodeToValidate);
-
+            if (EditorModel.Language == "JavaScript")
+            {
+                language = "JAVASCRIPT_NODE";
+            }
+            else if (EditorModel.Language == "Java")
+            {
+                language = "JAVA8";
+            }
+            else if (EditorModel.Language == "Python")
+            {
+                language = "PYTHON";
+            }
+            else if (EditorModel.Language == "C#")
+            {
+                language = "CSHARP";
+            }
+            else if (EditorModel.Language == "TypeScript")
+            {
+                language = "TYPESCRIPT";
+            }
+            ResponseSubmissionsModel response = await clientHackerEarth.GetCodeValidation(EditorModel.CodeToValidate, language);
+            
             /*
              * Sleep waiting for compiling result on HackerEarth
              */

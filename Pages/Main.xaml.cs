@@ -23,8 +23,7 @@ namespace SandboxForTasks.Pages
     {
         public Main()
         {
-            InitializeComponent();
-            
+            InitializeComponent();    
         }
     }
 }
