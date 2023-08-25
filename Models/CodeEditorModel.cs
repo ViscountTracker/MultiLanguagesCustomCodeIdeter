@@ -10,13 +10,22 @@ namespace SandboxForTasks.Models
         private string codeToValidate;
         private string output;
         private string stderr;
+        private string language;
+        public string Language
+        {
+            get { return this.language; }
+            set
+            {
+                this.language = value;
+                NotifyPropertyChanged();
+            }
+        }
         public string CodeToValidate
         {
             get
             {
                 return this.codeToValidate;
             }
-
             set
             {
                 this.codeToValidate = value;
@@ -47,7 +56,6 @@ namespace SandboxForTasks.Models
                 NotifyPropertyChanged();
             }
         }
-
         public CodeEditorModel()
         {
             CodeToValidate = "";

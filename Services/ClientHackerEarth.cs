@@ -18,7 +18,6 @@ namespace SandboxForTasks.Service
 
         private const int DEAFAULT_MEMORY_LIMIT = 999999;
         private const int DEAFAULT_TIME_LIMIT = 1000;
-        private const string DEAFAULT_LANG = "PYTHON";
         private const string DEAFAULT_INPUT = "";
         private const string DEAFAULT_CONTEXT = "";
         private const string DEAFAULT_CALLBACK = "";
@@ -39,14 +38,14 @@ namespace SandboxForTasks.Service
             }
         }
 
-        public async Task<ResponseSubmissionsModel?> GetCodeValidation(string codeToValidate)
+        public async Task<ResponseSubmissionsModel?> GetCodeValidation(string codeToValidate, string language)
         {
             var httpClient = new HttpClient();
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://api.hackerearth.com/v4/partner/code-evaluation/submissions/");
 
             httpRequest.Headers.Add("client-secret", clientSecretKey);
 
-            RequestSubmissionsModel request = new RequestSubmissionsModel(DEAFAULT_LANG, codeToValidate, DEAFAULT_INPUT, DEAFAULT_MEMORY_LIMIT, DEAFAULT_TIME_LIMIT, DEAFAULT_CONTEXT, DEAFAULT_CALLBACK);
+            RequestSubmissionsModel request = new RequestSubmissionsModel(language, codeToValidate, DEAFAULT_INPUT, DEAFAULT_MEMORY_LIMIT, DEAFAULT_TIME_LIMIT, DEAFAULT_CONTEXT, DEAFAULT_CALLBACK);
             var requstBodyJson = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8);
             requstBodyJson.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             httpRequest.Content = requstBodyJson;
@@ -81,5 +80,6 @@ namespace SandboxForTasks.Service
             }
             return item;
         }
+
     }
 }

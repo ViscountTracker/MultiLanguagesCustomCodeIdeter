@@ -3,8 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SandboxForTasks.Views"       
-      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:SandboxForTasks.Views" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       >
 
@@ -37,7 +37,8 @@
                    Foreground="#EFF7FE"
                    TextWrapping="Wrap"
                    />
-        <Button BorderBrush="#000000"
+        <StackPanel Orientation="Horizontal">
+            <Button BorderBrush="#000000"
                 Background="#000000"  
                 Foreground="#EFF7FE"
                 FontFamily="Consolas"
@@ -47,6 +48,24 @@
                 Margin="25 5 5 10" 
                 Click="Execute_Click"
                  />
+            <Label Content="Language:"
+                   Margin="10 0 -5 0"/>
+            <ComboBox 
+                Background="#000000"  
+                Foreground="#000000"
+                FontFamily="Consolas" 
+                Width="100" Height="30" 
+                HorizontalAlignment="Left" 
+                Margin="15 0 0 10" 
+                SelectedValue="{Binding Path=EditorModel.Language}">
+                <sys:String>JavaScript</sys:String>
+                <sys:String>Java</sys:String>
+                <sys:String>Python</sys:String>
+                <sys:String>C#</sys:String>
+                <sys:String>TypeScript</sys:String>
+               
+            </ComboBox>
+        </StackPanel>
     </StackPanel>
 
 </UserControl>
